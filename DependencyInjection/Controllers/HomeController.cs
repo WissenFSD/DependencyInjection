@@ -11,17 +11,19 @@ namespace DependencyInjection.Controllers
     // Ctor içerisinden gelen interface deðeri üzerinden o sýnýfa ait metotlara eriþebilirsiniz.
     public class HomeController : Controller
     {
-        public IFileService _fileService; 
+        public IFileService _fileService;
+        public Person _person;
 
-        public HomeController(IFileService fileService)
+        public HomeController(IFileService fileService, Person person)
         {
             _fileService = fileService;
-            
+            _person = person;
         }
 
         public IActionResult Index()
         {
            var files= _fileService.GetFileName();
+            _person.Ad = "Hamdi";
             
             // FileServices isimli sýnýfýn içerisindeki GetFileName metodunu çaðýrýnýz.
            

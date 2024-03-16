@@ -1,3 +1,4 @@
+using DependencyInjection.Models;
 using DependencyInjection.Services;
 
 namespace DependencyInjection
@@ -15,6 +16,16 @@ namespace DependencyInjection
 
             // Artýk sýnýflara eriþmek için newlemeye gerek kalmayacaktýr.
             builder.Services.AddScoped<IFileService, FileService>();
+
+
+            //Interface olmadan tanýmlama
+            builder.Services.AddScoped(typeof(Person));
+
+
+
+
+
+
 
             var app = builder.Build();
 
